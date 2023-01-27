@@ -1,17 +1,24 @@
 module MyEnumerable
+  def all?
+    @list.each do |word|
+      return false unless yield word
+    end
+    true
+  end
 
-    def all?
-        @list.each do |num|
-          return false unless yield num
-        end
-        true
-      end
-
-def any?
-@list.each do |num|
-return true if yield num
+  def any?
+    @list.each do |word|
+      return true if yield word
+    end
+    false
+  end
+  
+  def filter
+    filtered_list = []
+    @list.each do |word|
+      filtered_list << word if yield word
+    end
+    return filtered_list
+  end
 end
-false
-end
-
 
