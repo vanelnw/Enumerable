@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 require_relative 'my_enumerable'
 
 class MyList
-include MyEnumerable
- 
-def initialize(*item)
-      @list = item
-    end
+  include MyEnumerable
 
-    def each
-     #yield(@list)
-     @list.each { |item| yield item }
-    end
+  def initialize(*item)
+    @list = item
   end
+
+  def each(&block)
+    # yield(@list)
+    @list.each(&block)
+  end
+end

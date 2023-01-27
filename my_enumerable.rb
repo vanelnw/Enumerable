@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module MyEnumerable
   def all?
     @list.each do |word|
@@ -12,13 +14,12 @@ module MyEnumerable
     end
     false
   end
-  
+
   def filter
     filtered_list = []
     @list.each do |word|
       filtered_list << word if yield word
     end
-    return filtered_list
+    filtered_list
   end
 end
-
